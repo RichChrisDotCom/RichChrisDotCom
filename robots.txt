@@ -1,1 +1,4 @@
-# Robots file
+User-agent: *
+Allow: /
+
+Sitemap: https://richchris.com/sitemap.xml
