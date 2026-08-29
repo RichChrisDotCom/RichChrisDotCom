@@ -14,12 +14,14 @@
   <meta property="og:url" content="https://richchris.com/">
   <meta property="og:title" content="Rich Chris | Build Generational Wealth">
   <meta property="og:description" content="Build generational wealth. Design your dream life. Ask me how to build your own Empire.">
-  <meta property="og:image" content="https://richchris.com/avatar.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://richchris.com/banner.jpg">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="787">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@RichChrisDotCom">
   <meta name="twitter:title" content="Rich Chris | Build Generational Wealth">
   <meta name="twitter:description" content="Build generational wealth. Design your dream life. Ask me how to build your own Empire.">
-  <meta name="twitter:image" content="https://richchris.com/avatar.jpg">
+  <meta name="twitter:image" content="https://richchris.com/banner.jpg">
   <link rel="preload" as="image" href="/banner.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -429,6 +431,18 @@
       min-width: 200px;
     }
 
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      justify-content: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn, .service-card { transition: none; }
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 2.5rem 1.5rem;
@@ -515,8 +529,12 @@
         grid-template-columns: 1fr;
       }
 
+      .nav-links {
+        gap: 1rem;
+      }
+
       .nav-links a:not(.btn) {
-        display: none;
+        font-size: 0.8rem;
       }
     }
 
@@ -530,6 +548,20 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rich Chris",
+    "alternateName": "Rich 'Coach' Chris",
+    "url": "https://richchris.com/",
+    "image": "https://richchris.com/avatar.jpg",
+    "sameAs": ["https://x.com/RichChrisDotCom"],
+    "jobTitle": "Coach",
+    "description": "Coach helping people build generational wealth and design their dream life.",
+    "email": "mailto:richchrisdotcom@gmail.com"
+  }
+  </script>
 </head>
 <body>
   <nav>
@@ -622,8 +654,11 @@
   <section class="cta">
     <div class="cta-box">
       <h2>Ready to build a better version of yourself?</h2>
-      <p>DM me on X or reach out. Tell me where you are and where you want to go. We'll map the first moves.</p>
-      <a href="https://x.com/RichChrisDotCom" target="_blank" rel="noopener" class="btn btn-primary">Message @RichChrisDotCom</a>
+      <p>DM me on X or email. Tell me where you are and where you want to go. We'll map the first moves.</p>
+      <div class="cta-actions">
+        <a href="https://x.com/RichChrisDotCom" target="_blank" rel="noopener" class="btn btn-primary">Message @RichChrisDotCom</a>
+        <a href="mailto:richchrisdotcom@gmail.com" class="btn btn-outline">Email Rich</a>
+      </div>
     </div>
   </section>
 
