@@ -1,1 +1,610 @@
-# Rich Chris main website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rich Chris | Build Generational Wealth & Your Dream Life</title>
+  <meta name="description" content="Rich 'Coach' Chris helps you build generational wealth and design the life you actually want. Start becoming a better version of yourself today.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #111111;
+      --bg-card: #161616;
+      --border: #262626;
+      --text: #f5f5f5;
+      --text-muted: #a3a3a3;
+      --accent: #d4a017;
+      --accent-hover: #e8b923;
+      --accent-dim: rgba(212, 160, 23, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 50%;
+      height: 80%;
+      background: radial-gradient(ellipse, var(--accent-dim) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.4rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 280px;
+      height: 280px;
+    }
+
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), transparent 60%);
+      opacity: 0.6;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 1.5rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* About */
+    .about {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-card span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 6rem 1.5rem;
+    }
+
+    .cta-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-elevated));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta .btn {
+      min-width: 200px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-logo span {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+
+      .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .avatar-wrap {
+        width: 220px;
+        height: 220px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a:not(.btn) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Rich <span>Chris</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="https://x.com/RichChrisDotCom" target="_blank" rel="noopener" class="btn btn-primary">Connect on X</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Rich 'Coach' Chris</div>
+        <h1>Build <span>Generational Wealth</span>. Design Your Dream Life.</h1>
+        <p class="hero-sub">You can build a better version of yourself. We help you get started — with clarity, systems, and the mindset required to create lasting wealth.</p>
+        <div class="hero-cta">
+          <a href="https://x.com/RichChrisDotCom" target="_blank" rel="noopener" class="btn btn-primary">Start the Conversation</a>
+          <a href="#services" class="btn btn-outline">See How We Help</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-wrap">
+          <img src="https://pbs.twimg.com/profile_images/2093647226241191936/to4QScxz.jpg" alt="Rich Chris" class="avatar" width="280" height="280">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-label">The Mission</p>
+          <h2 class="section-title">Ask me how to build your own Empire.</h2>
+          <p>Most people chase income. The wealthy build systems that create freedom across generations. That's the shift.</p>
+          <p>I'm Rich Chris — coach, strategist, and guide for those ready to stop surviving and start designing a life that compounds. Whether you're building your first real asset base or refining an existing foundation, the principles remain the same: clarity, ownership, and disciplined action.</p>
+          <p>Need help building your Dream Life? You already know it's possible. Let's make it inevitable.</p>
+        </div>
+        <div class="stats">
+          <div class="stat-card">
+            <strong>Wealth</strong>
+            <span>Generational focus</span>
+          </div>
+          <div class="stat-card">
+            <strong>Clarity</strong>
+            <span>Decision frameworks</span>
+          </div>
+          <div class="stat-card">
+            <strong>Systems</strong>
+            <span>Repeatable results</span>
+          </div>
+          <div class="stat-card">
+            <strong>Action</strong>
+            <span>From plan to proof</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">How we help you level up</h2>
+      <p class="section-desc">Practical guidance built around the realities of building wealth and a life you actually want to live.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3>Generational Wealth Strategy</h3>
+          <p>Move beyond paycheck-to-paycheck thinking. Build assets, ownership, and structures that outlive any single income stream.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◆</div>
+          <h3>Dream Life Architecture</h3>
+          <p>Define what "better" actually looks like for you — then reverse-engineer the habits, income, and environment required to get there.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">●</div>
+          <h3>High-Performance Coaching</h3>
+          <p>Accountability, mindset, and execution systems so the plan doesn't die in the notebook. Consistent progress, not motivation spikes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-box">
+      <h2>Ready to build a better version of yourself?</h2>
+      <p>DM me on X or reach out. Tell me where you are and where you want to go. We'll map the first moves.</p>
+      <a href="https://x.com/RichChrisDotCom" target="_blank" rel="noopener" class="btn btn-primary">Message @RichChrisDotCom</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Rich <span>Chris</span></div>
+      <div class="footer-links">
+        <a href="https://x.com/RichChrisDotCom" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="mailto:richchrisdotcom@gmail.com">Email</a>
+        <a href="https://github.com/RichChrisDotCom" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="copyright">© 2026 Rich Chris. Building empires. One decision at a time.</p>
+    </div>
+  </footer>
+</body>
+</html>
